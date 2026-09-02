@@ -1,0 +1,35 @@
+# Module AgentAcl <a id="module-AgentAcl"></a>
+
+|  |  |
+| --- | --- |
+| **Defined in** | lib/agent_acl.rb, lib/agent_acl/cli.rb, lib/agent_acl/version.rb, lib/agent_acl/manifest.rb, lib/agent_acl/os_guard.rb, lib/agent_acl/project_path.rb, lib/agent_acl/installers/base.rb, lib/agent_acl/templates/guard.rb, lib/agent_acl/installers/codex.rb, lib/agent_acl/installers/opencode.rb, lib/agent_acl/installers/claude_code.rb |
+
+Project-local access controls for coding agents and operating-system file
+writes.
+
+## Constants
+### `LOADER` <a id="constant-LOADER"></a> <a id="LOADER-constant"></a>
+Not documented.
+
+### `VERSION` <a id="constant-VERSION"></a> <a id="VERSION-constant"></a>
+Not documented.
+
+# Documentation
+
+- [doc/AgentAcl/CLI.md](doc/AgentAcl/CLI.md)
+- [doc/AgentAcl/Error.md](doc/AgentAcl/Error.md)
+- [doc/AgentAcl/Guard/ProtectedPath.md](doc/AgentAcl/Guard/ProtectedPath.md)
+- [doc/AgentAcl/Guard.md](doc/AgentAcl/Guard.md)
+- [doc/AgentAcl/Installers/Base.md](doc/AgentAcl/Installers/Base.md)
+- [doc/AgentAcl/Installers/ClaudeCode.md](doc/AgentAcl/Installers/ClaudeCode.md)
+- [doc/AgentAcl/Installers/Codex.md](doc/AgentAcl/Installers/Codex.md)
+- [doc/AgentAcl/Installers/Opencode.md](doc/AgentAcl/Installers/Opencode.md)
+- [doc/AgentAcl/Installers.md](doc/AgentAcl/Installers.md)
+- [doc/AgentAcl/Manifest/Entry.md](doc/AgentAcl/Manifest/Entry.md)
+- [doc/AgentAcl/Manifest.md](doc/AgentAcl/Manifest.md)
+- [doc/AgentAcl/NeedsSudo.md](doc/AgentAcl/NeedsSudo.md)
+- [doc/AgentAcl/OsGuard/CommandRunner.md](doc/AgentAcl/OsGuard/CommandRunner.md)
+- [doc/AgentAcl/OsGuard/Result.md](doc/AgentAcl/OsGuard/Result.md)
+- [doc/AgentAcl/OsGuard.md](doc/AgentAcl/OsGuard.md)
+- [doc/AgentAcl/ProjectPath.md](doc/AgentAcl/ProjectPath.md)
+- [doc/AgentAcl/Unsupported.md](doc/AgentAcl/Unsupported.md)

@@ -17,6 +17,9 @@ jobs:
     strategy:
       matrix:
         ruby:
+          - '3.2'
+          - '3.3'
+          - '3.4'
           - '4.0.1'
 
     steps:
@@ -30,3 +33,20 @@ jobs:
           bundler-cache: true
       - name: Run the default task
         run: bundle exec rake
+
+  linux-immutable:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+      - name: Install the runtime dependency for the root harness
+        run: sudo env PATH="$PATH" gem install zeitwerk --version "~> 2.8" --no-document
+      - name: Verify immutable files and sudo ownership
+        run: sudo env PATH="$PATH" ruby test/linux/run.rb

@@ -1,5 +1,46 @@
 AllCops:
   TargetRubyVersion: 3.2
+  NewCops: enable
+  SuggestExtensions: false
+
+Metrics/AbcSize:
+  Max: 35
+  Exclude:
+    - "test/**/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "test/**/*"
+    - "agent-acl.gemspec"
+
+Metrics/ClassLength:
+  Max: 300
+  Exclude:
+    - "test/**/*"
+
+Metrics/MethodLength:
+  Max: 25
+  Exclude:
+    - "test/**/*"
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+  Exclude:
+    - "test/**/*"
+
+Metrics/PerceivedComplexity:
+  Max: 10
+  Exclude:
+    - "test/**/*"
+
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: semantic
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
