@@ -1,13 +1,12 @@
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-03
+
 - Report the protected path a shell command actually references instead of the first manifest entry.
 - Distinguish confirmed modification denials from fail-closed unanalysable-command denials.
 - Permit unknown executables that do not reference protected paths and add a project-owned executable allowlist.
 - Parse shell syntax with quote and comment awareness, distinguish read operands from write targets, and report
   malformed commands without hiding guard exceptions.
-
-## [0.1.0] - 2026-09-02
-
 - Load library constants with Zeitwerk and verify eager loading from an isolated gem install.
 - Add generated Markdown API documentation and a packaged `llm.txt` entry point.
 - Add `bin/prepare_release` for fail-fast validation, documentation generation, and gem building.
