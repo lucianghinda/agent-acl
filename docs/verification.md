@@ -1,6 +1,6 @@
 # Verification
 
-Verification date: 2026-09-02
+Verification date: 2026-09-03
 
 ## Automated suite
 
@@ -10,7 +10,7 @@ The portable Minitest suite and RuboCop run with:
 bundle exec rake
 ```
 
-Current result: `88 runs, 746 assertions, 0 failures, 0 errors, 0 skips`; RuboCop reports no offenses.
+Current result: `134 runs, 1582 assertions, 0 failures, 0 errors, 0 skips`; RuboCop reports no offenses.
 
 The suite covers the manifest, CLI validation and idempotence, generated Ruby and OpenCode guard contracts (including symbolic-link, hard-link, and glob aliases), installer merge and ownership behavior, source and installed package executables, Zeitwerk eager loading, Git-independent packaging, reproducible YARD and LLM documentation, fail-fast release preparation, and mocked OS branches. The macOS host also runs the real immutable-file integration test.
 
@@ -51,9 +51,16 @@ The harness verifies:
 
 ## Hook contracts
 
-The generated Ruby guard is tested as a standalone subprocess with Claude Code and Codex-shaped payloads. Denials use the `hookSpecificOutput` / `PreToolUse` envelope and include:
+The generated Ruby guard is tested as a standalone subprocess with Claude Code and Codex-shaped
+payloads. Confirmed modification denials use the `hookSpecificOutput` / `PreToolUse` envelope and
+include:
 
 > The user is not allowing changes to this file.
+
+Commands whose effects cannot be determined use a separate fail-closed reason and do not suggest
+allowing an unrelated manifest path. The suite covers unknown executables, quote-aware shell
+segmentation, malformed shell input, executable allowlisting, accurate protected-path reporting,
+shell comments, source/destination-aware commands, and protected output-redirection targets.
 
 The contract was checked against the current official sources:
 
@@ -64,4 +71,4 @@ The contract was checked against the current official sources:
 
 ## Manual real-agent acceptance
 
-The automated suite does not launch authenticated agent clients. Before publishing, use an isolated project to verify Claude Code, Codex CLI, and OpenCode against a protected test file. Ask each agent to read the file, then attempt an edit, deletion, rename, `sed -i`, immutable-flag removal, and `agent-acl allow`; repeat after a fresh session. Every mutation should be denied with the sentence above, and the file should remain unchanged.
+The automated suite does not launch authenticated agent clients. Before publishing, use an isolated project to verify Claude Code, Codex CLI, and OpenCode against a protected test file. Ask each agent to read the file, then attempt an edit, deletion, rename, `sed -i`, immutable-flag removal, and `agent-acl allow`; repeat after a fresh session. Every mutation should be denied with the applicable modification or unanalysable-command reason, and the file should remain unchanged.

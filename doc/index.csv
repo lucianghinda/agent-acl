@@ -53,6 +53,8 @@ AgentAcl::Installers::Base.STATE_PATH,Constant,AgentAcl/Installers/Base.md#const
 AgentAcl::Installers::Base.initialize,Method,AgentAcl/Installers/Base.md#method-i-initialize
 AgentAcl::Guard,Class,AgentAcl/Guard.md
 AgentAcl::Guard.DENY_SENTENCE,Constant,AgentAcl/Guard.md#constant-DENY_SENTENCE
+AgentAcl::Guard.UNANALYSABLE_SENTENCE,Constant,AgentAcl/Guard.md#constant-UNANALYSABLE_SENTENCE
+AgentAcl::Guard.EXECUTABLE_ALLOWLIST_PATH,Constant,AgentAcl/Guard.md#constant-EXECUTABLE_ALLOWLIST_PATH
 AgentAcl::Guard.INFRASTRUCTURE_PATHS,Constant,AgentAcl/Guard.md#constant-INFRASTRUCTURE_PATHS
 AgentAcl::Guard.READ_ONLY_COMMANDS,Constant,AgentAcl/Guard.md#constant-READ_ONLY_COMMANDS
 AgentAcl::Guard.READ_ONLY_GIT_SUBCOMMANDS,Constant,AgentAcl/Guard.md#constant-READ_ONLY_GIT_SUBCOMMANDS
@@ -61,14 +63,9 @@ AgentAcl::Guard.GIT_OUTPUT_OPTION,Constant,AgentAcl/Guard.md#constant-GIT_OUTPUT
 AgentAcl::Guard.LESS_OUTPUT_OPTION,Constant,AgentAcl/Guard.md#constant-LESS_OUTPUT_OPTION
 AgentAcl::Guard.PATH_SCOPED_MUTATORS,Constant,AgentAcl/Guard.md#constant-PATH_SCOPED_MUTATORS
 AgentAcl::Guard.HARMLESS_SHELL_BUILTINS,Constant,AgentAcl/Guard.md#constant-HARMLESS_SHELL_BUILTINS
-AgentAcl::Guard.SPLIT_COMMANDS,Constant,AgentAcl/Guard.md#constant-SPLIT_COMMANDS
-AgentAcl::Guard.REDIRECTION,Constant,AgentAcl/Guard.md#constant-REDIRECTION
-AgentAcl::Guard.UNSAFE_SHELL_SYNTAX,Constant,AgentAcl/Guard.md#constant-UNSAFE_SHELL_SYNTAX
-AgentAcl::Guard.AMBIGUOUS_SHELL_SYNTAX,Constant,AgentAcl/Guard.md#constant-AMBIGUOUS_SHELL_SYNTAX
 AgentAcl::Guard.SHELL_VARIABLE,Constant,AgentAcl/Guard.md#constant-SHELL_VARIABLE
 AgentAcl::Guard.SHELL_ASSIGNMENT,Constant,AgentAcl/Guard.md#constant-SHELL_ASSIGNMENT
 AgentAcl::Guard.initialize,Method,AgentAcl/Guard.md#method-i-initialize
-AgentAcl::Guard.read_only?,Method,AgentAcl/Guard.md#method-i-read_only-3F
 AgentAcl::Guard.run,Method,AgentAcl/Guard.md#method-i-run
 AgentAcl::Guard.canonical_path,Method,AgentAcl/Guard.md#method-c-canonical_path
 AgentAcl::Guard.run,Method,AgentAcl/Guard.md#method-c-run

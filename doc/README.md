@@ -74,6 +74,11 @@ edit\t0644\tLICENSE
 edit\t0755\tbin/release
 ```
 
+Projects can explicitly trust additional read-only executables by listing their basenames, one per
+line, in `.agent-acl.d/executables.allow`. Blank lines and lines beginning with `#` are ignored.
+Allowlisting is a deliberate trust decision: the Ruby hook permits that executable to receive a
+protected path, but known mutators such as `rm`, `mv`, and `tee` remain denied even if listed.
+
 ## Operating-system behavior
 
 On macOS, agent-acl removes write bits and applies the user immutable flag with `chflags uchg`. Reading and executing still work. The file owner can revert the flag without sudo.
@@ -86,7 +91,11 @@ When invoked through sudo, generated project files are returned to `SUDO_UID:SUD
 
 `agent-acl` protects against accidental or instruction-driven agent changes; it is not a tamper-proof boundary against a malicious process running as the same OS user. That user can remove macOS flags, and root can remove Linux immutable attributes.
 
-Its hook policy is deliberately fail-closed while any file is protected. Read-only commands are allowed, and path-scoped mutators are allowed only when every operand is provably disjoint from protected paths; interpreters and commands with unknown effects are denied.
+The generated Ruby hook policy is deliberately fail-closed while any file is protected. Read-only commands are
+allowed, and path-scoped mutators are allowed when their write targets are provably disjoint from
+protected paths. Commands with unknown effects are allowed when they do not reference a protected
+path; otherwise they are denied as unanalysable unless their executable is explicitly trusted in
+`.agent-acl.d/executables.allow`. Malformed or genuinely ambiguous shell input is always denied.
 
 Version 0.1 protects individual files from edits, replacement, deletion, renaming, and protection-lifting commands. It does not:
 
